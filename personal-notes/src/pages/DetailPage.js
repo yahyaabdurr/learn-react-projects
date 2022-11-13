@@ -1,10 +1,13 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate, } from 'react-router-dom';
+
 import NoteDetail from '../components/NoteDetail';
 import { getNote } from '../utils/local-data';
+import PropTypes from 'prop-types';
 
 function DetailPageWrapper() {
     const { id } = useParams();
+
     return <DetailPage id={id} />;
 }
 
@@ -18,8 +21,12 @@ class DetailPage extends React.Component {
     }
 
     render() {
-        if (this.state.note === null) {
-            return <p>note is not found!</p>;
+
+        if (this.state.note === undefined) {
+            return (
+                <Navigate to='*' />
+            )
+
         }
 
         return (
@@ -29,5 +36,9 @@ class DetailPage extends React.Component {
         );
     }
 }
+
+DetailPage.propTypes = {
+    id: PropTypes.string.isRequired
+};
 
 export default DetailPageWrapper;

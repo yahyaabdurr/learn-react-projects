@@ -51,7 +51,8 @@ NoteDetail.propTypes = {
     title: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    archived: PropTypes.bool.isRequired
 
 };
 

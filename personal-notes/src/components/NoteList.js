@@ -14,7 +14,7 @@ function NoteList({ notes }) {
 }
 
 NoteList.propTypes = {
-    data: PropTypes.array
+    notes: PropTypes.array
 };
 
 export default NoteList;

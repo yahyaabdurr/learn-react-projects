@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { getArchivedNotes } from '../utils/local-data';
 import NoteList from '../components/NoteList';
 import SearchNote from '../components/SearchNote';
@@ -13,13 +13,12 @@ import EmptyMessage from '../components/EmptyMessage';
 function ArchivePageWrapper() {
     const [searchParams, setSearchParams] = useSearchParams();
     const keyword = searchParams.get('keyword') || '';
-    const navigate = useNavigate();
     function changeSearchParams(keyword) {
         setSearchParams({ keyword });
     }
 
 
-    return <ArchivePage defaultKeyword={keyword} keywordChange={changeSearchParams} navigate={navigate} />
+    return <ArchivePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
 }
 class ArchivePage extends React.Component {
     constructor(props) {
@@ -55,7 +54,7 @@ class ArchivePage extends React.Component {
 
         return (
             <section className='archives-page'>
-                <h2>Catatan Aktif</h2>
+                <h2>Catatan Arsip</h2>
                 <SearchNote keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
                 {notes.length > 0 ? <NoteList notes={notes} /> : <EmptyMessage />}
 
