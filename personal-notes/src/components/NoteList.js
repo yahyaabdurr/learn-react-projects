@@ -1,18 +1,20 @@
 import NoteItem from "./NoteItem";
+import { PropTypes } from 'prop-types'
 
-
-
-
-function NoteList({ notes, onDelete, onArchive }) {
+function NoteList({ notes }) {
     return (
-        <div className="notes-list">
+        <section className="notes-list">
             {
                 notes.map((note) => (
-                    <NoteItem note={note} onArchive={onArchive} onDelete={onDelete} />
+                    <NoteItem key={note.id} note={note} />
                 ))
             }
-        </div>
+        </section>
     );
 }
+
+NoteList.propTypes = {
+    data: PropTypes.array
+};
 
 export default NoteList;

@@ -1,9 +1,17 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import PersonalNoteApp from './components/PersonalNoteApp';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+
 
 // import style
 import './styles/style.css';
 
 const root = createRoot(document.getElementById('root'));
-root.render(<PersonalNoteApp />);
+
+root.render(
+    <BrowserRouter>
+        <App />,
+    </BrowserRouter>
+
+);

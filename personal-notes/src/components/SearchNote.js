@@ -1,13 +1,19 @@
 
-import React from "react";
+import PropTypes from 'prop-types'
 
 
-function SearchNote({ keyword, onKeywordChangeEventHandler }) {
+function SearchNote({ keyword, keywordChange }) {
     return (
-        <div className="note-search">
-            <input type="text" placeholder="Cari Catatan..." value={keyword} onChange={(event => onKeywordChangeEventHandler(event.target.value))} />
-        </div>
+        <section className="search-bar">
+            <input type="text" placeholder="Cari berdasarkan judul ..." value={keyword} onChange={(event => keywordChange(event.target.value))} />
+        </section>
     )
+
+}
+
+SearchNote.propType = {
+    keyword: PropTypes.string.isRequired,
+    keywordChange: PropTypes.func.isRequired
 
 }
 

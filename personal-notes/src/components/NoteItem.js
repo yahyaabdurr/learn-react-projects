@@ -1,13 +1,9 @@
 import React from "react";
-import NoteActionButton from "./NoteActionButton";
 import NoteItemContent from "./NoteItemContent";
 
-function NoteItem({ note, onDelete, onArchive }) {
+function NoteItem({ note }) {
     return (
-        <div className="note-item">
-            <NoteItemContent key={note.id} {...note} />
-            <NoteActionButton id={note.id} onDelete={onDelete} isArchive={note.archived} onArchive={onArchive} />
-        </div>
+        <NoteItemContent key={note.id} {...note} />
     );
 }
 
