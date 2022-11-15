@@ -5,8 +5,8 @@ import { addContact } from "../utils/data";
 function AddPage() {
 
     const navigate = useNavigate();
-    function onAddContactHandler(contact) {
-        addContact(contact);
+    async function onAddContactHandler(contact) {
+        await addContact(contact);
         navigate('/');
     }
 
